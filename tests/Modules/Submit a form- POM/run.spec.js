@@ -8,4 +8,9 @@ test('getting started should contain table of contents', async ({ page }) => {
   await playwrightDev.fillForm(data.formData);
 });
 
+test('getting started should contain table of contents', async ({ page }) => {
+  const playwrightDev = new PlaywrightDevPage(page);
+  await playwrightDev.navigate();
+  await playwrightDev.fillForm(data.formData);
+});
  
