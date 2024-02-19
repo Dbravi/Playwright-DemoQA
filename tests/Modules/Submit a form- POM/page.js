@@ -5,7 +5,6 @@ export class basePage {
 //SELECTORS
   constructor(page) {
     this.page = page;
-    
     this.baseUrl= 'https://demoqa.com/automation-practice-form';
     this.firstName= page.getByPlaceholder('First Name');
     this.lastName= page.getByPlaceholder('Last Name');
@@ -30,16 +29,16 @@ export class basePage {
     await this.page.goto(this.baseUrl);
   }
 
-  async fillForm(formData){
-  await this.firstName.fill(formData.firstName);
-  await this.lastName.fill(formData.lastName);
-  await this.email.fill(formData.email);
+  async fillForm(input){
+  await this.firstName.fill(input.firstName);
+  await this.lastName.fill(input.lastName);
+  await this.email.fill(input.email);
   await this.gender.click();
-  await this.phoneNumber.fill(formData.mobileNumber);
+  await this.phoneNumber.fill(input.mobileNumber);
   await this.dateOfBirth.click();
-  await this.subjects.fill(formData.subjects);
+  await this.subjects.fill(input.subjects);
   await this.hobbieSports.click();
-  await this.address.fill(formData.address);
+  await this.address.fill(input.address);
   await this.selectState.click();
   await this.state.click();
   await this.selectCity.click();
@@ -49,6 +48,13 @@ export class basePage {
 //VALIDATIONS
 
 async validateForm() {
-    expect(this.page.modal.toContainText('Thanks for submitting the form'));
+  await expect(this.modal).toContainText('Thanks for submitting the form');
+}
+async captureAndAttachScreenshot(testInfo, screenshotName) {
+  const screenshot = await this.page.screenshot();
+  await testInfo.attach(screenshotName, {
+    body: screenshot,
+    contentType: 'image/png',
+  });
 }
 };
