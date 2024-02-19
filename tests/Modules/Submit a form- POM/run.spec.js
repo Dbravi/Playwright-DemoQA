@@ -1,11 +1,15 @@
-const { test, expect } = require('@playwright/test');
-const { PlaywrightDevPage } = require('./page');
-const data = require('./data.json');
+import { test, expect } from '@playwright/test';
+import { basePage } from './page';
+import { formData1, formData2 } from './data.json';
 
-test('getting started should contain table of contents', async ({ page }) => {
-  const playwrightDev = new PlaywrightDevPage(page);
-  await playwrightDev.navigate();
-  await playwrightDev.fillForm(data.formData);
+test('test01', async ({ page }) => {
+  const basepage = new basePage(page);
+  await basepage.navigate();
+  await basepage.fillForm(formData1);
 });
 
- 
+test('test02', async ({ page }) => {
+  const basepage = new basePage(page);
+  await basepage.navigate();
+  await basepage.fillForm(formData2);
+});
