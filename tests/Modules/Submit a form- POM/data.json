@@ -1,17 +1,21 @@
 {
-    "formData": {
+    "formData1": {
         "firstName": "Damian",
         "lastName": "Bravi",
         "email": "damianbravi@somemail.com",
-        "gender": "Male",
         "mobileNumber": "1111111111",
-        "dateOfBirth": "Monday, February 12th",
-        "subjects": "Test Mail",
+        "subjects": "Test Subject",
         "hobbies": ["Sports", "Music"],
-        "picture": "Screenshot 2024-02-13 134057.png",
-        "currentAddress": "Fake address 1234, Buenos Aires, Argentina.",
-        "state": "Uttar Pradesh",
-        "city": "Agra"
+        "address": "False street 1234, Dept 6 4"
+    },
+    "formData2": {
+        "firstName": "Greisi",
+        "lastName": "Pinto",
+        "email": "chemical88@somemail.com",
+        "mobileNumber": "1234567890",
+        "subjects": "Test Subject",
+        "hobbies": ["Sports", "Music"],
+        "address": "False street 1234, Dept 6 4"
     }
   }
   
