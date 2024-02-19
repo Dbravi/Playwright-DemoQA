@@ -6,12 +6,9 @@
         "gender": "Male",
         "mobileNumber": "1111111111",
         "dateOfBirth": "Monday, February 12th",
-        "subjects": "Test Mail",
+        "subjects": "Test Subject",
         "hobbies": ["Sports", "Music"],
-        "picture": "Screenshot 2024-02-13 134057.png",
-        "currentAddress": "Fake address 1234, Buenos Aires, Argentina.",
-        "state": "Uttar Pradesh",
-        "city": "Agra"
+        "address":"Fake address 1234, Buenos Aires, Argentina."
     }
   }
   
