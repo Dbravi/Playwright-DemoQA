@@ -11,7 +11,7 @@ test.describe('Test Suite 01', () => {
     await basepage.navigate();
   });
 
-  test.only('testCase 01', async ({}, testInfo) => {
+  test('testCase 01', async ({}, testInfo) => {
     await basepage.fillForm(formData1);
     await basepage.validateForm();
     await basepage.captureAndAttachScreenshot(testInfo, 'Evidence');
