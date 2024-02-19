@@ -1,12 +1,12 @@
 const { expect } = require('@playwright/test');
-const formData  = require('./data.json');
 
-exports.PlaywrightDevPage = class PlaywrightDevPage {
+exports.basePage = class basePage {
 
 //SELECTORS
   constructor(page) {
     this.page = page;
-    this.basePage= 'https://demoqa.com/automation-practice-form';
+    
+    this.baseUrl= 'https://demoqa.com/automation-practice-form';
     this.firstName= page.getByPlaceholder('First Name');
     this.lastName= page.getByPlaceholder('Last Name');
     this.email= page.getByPlaceholder('name@example.com');
@@ -18,15 +18,15 @@ exports.PlaywrightDevPage = class PlaywrightDevPage {
 
 //ACTIONS
   async navigate() {
-    await this.page.goto(this.basePage);
+    await this.page.goto(this.baseUrl);
   }
 
-  async fillForm(formData){
-  await this.firstName.fill(formData.firstName);
-  await this.lastName.fill(formData.lastName);
-  await this.email.fill('damianbravi@somemail.com');
+  async fillForm(input){
+  await this.firstName.fill(input.firstName);
+  await this.lastName.fill(input.lastName);
+  await this.email.fill(input.email);
   await this.gender.click();
-  await this.phoneNumber.fill('1234567890');
+  await this.phoneNumber.fill(input.mobileNumber);
   }
 
   async clickSubmitButton() {
