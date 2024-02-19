@@ -1,6 +1,6 @@
-const { expect } = require('@playwright/test');
+import { expect } from '@playwright/test';
 
-exports.basePage = class basePage {
+export class basePage {
 
 //SELECTORS
   constructor(page) {
@@ -38,4 +38,4 @@ async validateModal() {
     expect(this.page.modal.toContainText('Thanks for submitting the form'));
 }
 
-};
+}
