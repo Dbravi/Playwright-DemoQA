@@ -6,7 +6,7 @@ import { formData1, formData2 } from './data.json';
 test.describe('Test Suite 01', () => {
   let basepage;
 
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page } ) => {
     basepage = new basePage(page);
     await basepage.navigate();
   });
