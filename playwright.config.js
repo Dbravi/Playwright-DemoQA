@@ -1,5 +1,5 @@
 // @ts-check
-const { defineConfig, devices } = require('@playwright/test');
+const { defineConfig, devices } = require("@playwright/test");
 
 /**
  * Read environment variables from file.
@@ -11,7 +11,7 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests',
+  testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
   timeout: 50000,
@@ -22,18 +22,16 @@ module.exports = defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [
-    ['list'],
-    ['html']
-  ],
+  reporter: [["list"], ["html"]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
-
+    baseURL: "https://restful-booker.herokuapp.com",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
-    launchOptions: { 
+    trace: "on-first-retry",
+    screenshot: "on",
+    launchOptions: {
       slowMo: isHeadedMode() ? 1000 : undefined,
       // args: ["--start-maximized"],
     },
@@ -42,16 +40,17 @@ module.exports = defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-       use: {...devices['Desktop Chrome'],
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
         // viewport: null,
-       }
+      },
     },
     // {
     //   name: 'firefox',
     //   use: { ...devices['Desktop Firefox'],
     // },
-    
+
     // },
 
     // {
@@ -90,6 +89,6 @@ module.exports = defineConfig({
 
 function isHeadedMode() {
   // important to use env var - for workers
-  if (process.argv.includes('--headed')) process.env.HEADED_MODE = '1';
+  if (process.argv.includes("--headed")) process.env.HEADED_MODE = "1";
   return Boolean(process.env.HEADED_MODE);
 }
