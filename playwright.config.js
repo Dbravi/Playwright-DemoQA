@@ -30,7 +30,6 @@ module.exports = defineConfig({
     baseURL: "https://restful-booker.herokuapp.com",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    screenshot: "on",
     launchOptions: {
       slowMo: isHeadedMode() ? 1000 : undefined,
       // args: ["--start-maximized"],
