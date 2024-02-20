@@ -2,7 +2,6 @@ import { test } from "@playwright/test";
 import { basePage } from "./page";
 import data from "./data.json";
 
-// Using Mocha-style describe block
 test.describe("Test Suite 01", () => {
   let basepage;
 
@@ -11,15 +10,25 @@ test.describe("Test Suite 01", () => {
     await basepage.navigate();
   });
 
-  test("testCase 01", async ({}, testInfo) => {
-    await basepage.fillForm(data.formData1);
-    await basepage.validateForm();
-    await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+  test.only("testCase 01", async ({}, testInfo) => {
+    await test.step("Fill Form", async () => {
+      await basepage.fillForm(data.formData1);
+    });
+
+    await test.step("Validate Form and gather evidence", async () => {
+      await basepage.validateForm();
+      await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+    });
   });
 
   test("testCase 02", async ({}, testInfo) => {
-    await basepage.fillForm(data.formData2);
-    await basepage.validateForm();
-    await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+    await test.step("Fill Form", async () => {
+      await basepage.fillForm(data.formData1);
+    });
+
+    await test.step("Validate Form and gather evidence", async () => {
+      await basepage.validateForm();
+      await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+    });
   });
 });
