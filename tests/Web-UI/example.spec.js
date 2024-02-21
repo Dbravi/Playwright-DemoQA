@@ -12,7 +12,7 @@ test.only("get started link", async ({ page }) => {
   await page.goto("https://playwright.dev/");
 
   // Click the get started link.
-  await page.getByRole("link", { name: "Star" }).click();
+  await page.getByRole("link", { name: "Getting Started" }).click();
 
   // Expects page to have a heading with the name of Installation.
   await expect(
