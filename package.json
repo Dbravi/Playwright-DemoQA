@@ -13,6 +13,7 @@
     "@types/node": "^20.11.19"
   },
   "dependencies": {
-    "luxon": "^3.4.4"
+    "luxon": "^3.4.4",
+    "playwright": "^1.41.2"
   }
 }
