@@ -17,18 +17,18 @@ test.describe("Test Suite 01", () => {
 
     await test.step("Validate Form and gather evidence", async () => {
       await basepage.validateForm();
-      await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+      // await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
     });
   });
 
   test("testCase 02", async ({}, testInfo) => {
     await test.step("Fill Form", async () => {
-      await basepage.fillForm(data.formData1);
+      await basepage.fillForm(data.formData2);
     });
 
     await test.step("Validate Form and gather evidence", async () => {
       await basepage.validateForm();
-      await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
+      // await basepage.captureAndAttachScreenshot(testInfo, "Evidence");
     });
   });
 });

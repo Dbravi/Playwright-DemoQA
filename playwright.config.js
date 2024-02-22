@@ -12,6 +12,7 @@ const { defineConfig, devices } = require("@playwright/test");
  */
 module.exports = defineConfig({
   testDir: "./tests",
+
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,17 +23,21 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [["list"], ["html"]],
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    scripts: {
+      test: "playwright test",
+    },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
     baseURL: "https://restful-booker.herokuapp.com",
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
-    launchOptions: {
-      // slowMo: isHeadedMode() ? 1000 : undefined,
-      // args: ["--start-maximized"],
-    },
+    // launchOptions: {
+    //   // slowMo: isHeadedMode() ? 1000 : undefined,
+    //   // args: ["--start-maximized"],
+    // },
   },
 
   /* Configure projects for major browsers */
@@ -85,8 +90,8 @@ module.exports = defineConfig({
   // },
 });
 
-function isHeadedMode() {
-  // important to use env var - for workers
-  if (process.argv.includes("--headed")) process.env.HEADED_MODE = "1";
-  return Boolean(process.env.HEADED_MODE);
-}
+// function isHeadedMode() {
+//   // important to use env var - for workers
+//   if (process.argv.includes("--headed")) process.env.HEADED_MODE = "1";
+//   return Boolean(process.env.HEADED_MODE);
+// }
