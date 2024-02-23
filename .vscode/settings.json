@@ -1,0 +1,5 @@
+{
+  "prettier.printWidth": 160,
+  "prettier.singleAttributePerLine": true,
+  "prettier.proseWrap": "never"
+}

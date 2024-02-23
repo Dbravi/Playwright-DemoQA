@@ -12,6 +12,7 @@ const { defineConfig, devices } = require("@playwright/test");
  */
 module.exports = defineConfig({
   testDir: "./tests",
+  timeout: 15000,
 
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -28,6 +29,7 @@ module.exports = defineConfig({
   use: {
     scripts: {
       test: "playwright test",
+      // report: "playwright show-report",
     },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
@@ -49,17 +51,15 @@ module.exports = defineConfig({
         // viewport: null,
       },
     },
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'],
-    // },
+    /* {
+      name: "firefox",
+      use: { ...devices["Desktop Firefox"] },
+    },
 
-    // },
-
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
+    {
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
+    },/*
 
     /* Test against mobile viewports. */
     // {

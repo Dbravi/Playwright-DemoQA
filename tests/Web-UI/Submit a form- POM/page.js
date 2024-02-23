@@ -8,10 +8,10 @@ export class basePage {
     this.firstName = page.getByPlaceholder("First Name");
     this.lastName = page.getByPlaceholder("Last Name");
     this.email = page.getByPlaceholder("name@example.com");
-    this.gender = page.getByText("ale", { exact: true });
+    this.gender = page.getByText("Male", { exact: true });
     this.phoneNumber = page.getByPlaceholder("Mobile Number");
     this.dateOfBirth = page.locator("#dateOfBirthInput");
-    this.subjects = page.locator("#subjectsInput");
+    this.subjects = page.locator("#ubjectsInput");
     this.date = page.getByLabel("Choose Monday, February 12th,");
     this.hobbieSports = page.getByText("Sports");
     this.address = page.getByPlaceholder("Current Address");
