@@ -1,101 +1,42 @@
-import { test, expect } from "@playwright/test";
-test.describe("Validation form tests", () => {
+import { test, expect } from '@playwright/test'
+
+test.describe('Validation form tests', () => {
   test.beforeEach(async ({ page }) => {
     // Setup code before running any tests
-    await page.goto("https://demoqa.com/automation-practice-form");
-  });
-  test("Test001", async ({ page }, testInfo) => {
-    await test.step("Fill Form", async () => {
-      await page.getByPlaceholder("First Name").fill("Damian");
-      await page.getByPlaceholder("Last Name").fill("Bravi");
-      await page
-        .getByPlaceholder("name@example.com")
-        .fill("damianbravi@somemail.com");
-      await page.getByText("Male", { exact: true }).click();
-      await page.getByPlaceholder("Mobile Number").fill("1111111111");
-      await page.locator("#dateOfBirthInput").click();
-      await page.getByLabel("Choose Monday, February 12th,").click();
-      await page.locator(".subjects-auto-complete__value-container").click();
-      await page.locator("#subjectsInput").fill("Test Mail");
-      await page.getByText("Sports").click();
-      await page.getByText("Music").click();
-      // await page.getByLabel('Select picture').click();
-      // await page.getByLabel('Select picture').setInputFiles('Screenshot 2024-02-13 134057.png');
-      await page.getByPlaceholder("Current Address").click();
-      await page
-        .getByPlaceholder("Current Address")
-        .fill("Fake address 1234, Buenos Aires, Argentina.");
-      await page
-        .locator("div")
-        .filter({ hasText: /^Select State$/ })
-        .nth(3)
-        .click();
-      await page.getByText("Uttar Pradesh", { exact: true }).click();
-      await page.getByText("Select City").click();
-      await page.getByText("Agra", { exact: true }).click();
-    });
+    await page.goto('https://demoqa.com/automation-practice-form')
+  })
 
-    await test.step("Submit Form", async () => {
-      await page.getByRole("button", { name: "Submit" }).click();
-    });
+  test.only('Test001', async ({ page }, testInfo) => {
+    await test.step('Fill Form', async () => {
+      await page.fill('input[name="firstname"]', 'Damian')
+      await page.fill('input[name="lastname"]', 'Bravi')
+      await page.fill('input[name="userEmail"]', 'damianbravi@somemail.com')
+      await page.check('input[value="Male"]')
+      await page.fill('input[name="userNumber"]', '1111111111')
+      await page.click('input#dateOfBirthInput')
+      await page.click('div.react-datepicker__day--012')
+      await page.fill('input#subjectsInput', 'Test Mail')
+      await page.check('input#hobbies-checkbox-1')
+      await page.check('input#hobbies-checkbox-2')
+      await page.fill('textarea#currentAddress', 'Fake address 1234, Buenos Aires, Argentina.')
+      await page.selectOption('select#state', 'Uttar Pradesh')
+      await page.selectOption('select#city', 'Agra')
+    })
 
-    await test.step("Validate form", async () => {
-      await expect(page.locator("#example-modal-sizes-title-lg")).toContainText(
-        "Thanks for submitting the form"
-      );
+    await test.step('Submit Form', async () => {
+      await page.click('button#submit')
+    })
+
+    await test.step('Validate form', async () => {
+      await expect(page.locator('h5#example-modal-sizes-title-lg')).toHaveText(
+        'Thanks for submitting the form'
+      )
 
       // Attach screenshot as evidence
-      await testInfo.attach("Report Validation", {
+      await testInfo.attach('Report Validation', {
         body: await page.screenshot(),
-        contentType: "image/png",
-      });
-    });
-  });
-  test.only("Test002", async ({ page }, testInfo) => {
-    await test.step("Fill Form", async () => {
-      await page.getByPlaceholder("First Name").fill("Damian");
-      await page.getByPlaceholder("Last Name").fill("Bravi");
-      await page
-        .getByPlaceholder("name@example.com")
-        .fill("damianbravi@somemail.com");
-      await page.getByText("Male", { exact: true }).click();
-      await page.getByPlaceholder("Mobile Number").fill("1111111111");
-      await page.locator("#dateOfBirthInput").click();
-      await page.getByLabel("Choose Monday, February 12th,").click();
-      await page.locator(".subjects-auto-complete__value-container").click();
-      await page.locator("#subjectsInput").fill("Test Mail");
-      await page.getByText("Sports").click();
-      await page.getByText("Music").click();
-      // await page.getByLabel('Select picture').click();
-      // await page.getByLabel('Select picture').setInputFiles('Screenshot 2024-02-13 134057.png');
-      await page.getByPlaceholder("Current Address").click();
-      await page
-        .getByPlaceholder("Current Address")
-        .fill("Fake address 1234, Buenos Aires, Argentina.");
-      await page
-        .locator("div")
-        .filter({ hasText: /^Select State$/ })
-        .nth(3)
-        .click();
-      await page.getByText("Uttar Pradesh", { exact: true }).click();
-      await page.getByText("Select City").click();
-      await page.getByText("Agra", { exact: true }).click();
-    });
-
-    await test.step("Submit Form", async () => {
-      await page.getByRole("button", { name: "Submit" }).click();
-    });
-
-    await test.step("Validate form", async () => {
-      await expect(page.locator("#example-modal-sizes-title-lg")).toContainText(
-        "Thanks for submitting the form"
-      );
-
-      // Attach screenshot as evidence
-      await testInfo.attach("Report Validation", {
-        body: await page.screenshot(),
-        contentType: "image/png",
-      });
-    });
-  });
-});
+        contentType: 'image/png'
+      })
+    })
+  })
+})
