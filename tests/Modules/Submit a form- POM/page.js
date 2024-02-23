@@ -8,7 +8,7 @@ export class basePage {
     this.firstName = page.getByPlaceholder('First Name')
     this.lastName = page.getByPlaceholder('Last Name')
     this.email = page.getByPlaceholder('name@example.com')
-    this.gender = page.getByText('ale', { exact: true })
+    this.gender = page.getByText('Male', { exact: true })
     this.phoneNumber = page.getByPlaceholder('Mobile Number')
     this.dateOfBirth = page.locator('#dateOfBirthInput')
     this.subjects = page.locator('#subjectsInput')
