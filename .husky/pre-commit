@@ -1,5 +1,10 @@
-// .husky/pre-commit
+#!/bin/sh
 
 echo "Running ESLint..."
 npx eslint .
-echo "Eslint Passed, Pushing"
+if [ $? -ne 0 ]; then
+    echo "ESLint failed, aborting commit"
+    exit 1
+fi
+
+echo "ESLint Passed, Committing"
