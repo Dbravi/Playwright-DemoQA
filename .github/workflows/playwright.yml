@@ -49,5 +49,5 @@ jobs:
   Job_Actions_Summary:  # Renamed to avoid potential conflicts
     runs-on: ubuntu-latest  # Specify a runner for this job
     steps:
-      - name: Simple Job Summary
-        run: echo 'Hello World' >> $GITHUB_STEP_SUMMARY
+      - name: Simple Job Summary  # Added the missing `run` key
+        run: echo 'Hello World' >> $GITHUB_STEP_SUMMARY  # Added the missing command
