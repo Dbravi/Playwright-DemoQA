@@ -16,3 +16,4 @@ Thumbs.db
 
 # Docs files
 *_spec3.json
+!/home/dex/Projects/Automation Projects/Playwright-DemoQA/.github/workflows/playwright.yml

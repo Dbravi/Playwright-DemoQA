@@ -2,14 +2,15 @@ module.exports = {
   env: {
     node: true
   },
-  extends: 'standard',
+  extends: ['standard'],
+  plugins: ['yml'],
   overrides: [
     {
       env: {
         node: true
       },
       files: [
-        '.eslintrc.{js,cjs}'
+        '.eslintrc.{js,cjs,yaml, *.yml}'
       ],
       parserOptions: {
         sourceType: 'script'
