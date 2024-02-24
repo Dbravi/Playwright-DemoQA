@@ -10,7 +10,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-     permissions:
+    permissions:
       deployment: write
 
     steps:
