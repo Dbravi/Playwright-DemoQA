@@ -31,6 +31,19 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test
+      
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: report-artifact
+          path: playwright-report/
+          retention-days: 3
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        if: always()
+        with:
+          path: "playwright-report/"
 
       - name: Setup Pages
         if: always()
