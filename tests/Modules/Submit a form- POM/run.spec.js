@@ -10,7 +10,7 @@ test.describe('Test Suite 01', () => {
     await basepage.navigate()
   })
 
-  test.only('testCase 01', async () => {
+  test('testCase 01', async () => {
     await test.step('Fill Form', async () => {
       await basepage.fillForm(data.formData1)
     })
