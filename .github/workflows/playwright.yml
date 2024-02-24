@@ -43,8 +43,11 @@ jobs:
           path: playwright-report/
           retention-days: 3
 
-      - name: Deploy to GitHub Pages
+        - name: Deploy to GitHub Pages
+         if: always()
+         id: deployment
+         uses: actions/deploy-pages@v2
+
+        - name: Print Results Link
         if: always()
-        id: deployment
-        uses: actions/deploy-pages@v2
         run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
