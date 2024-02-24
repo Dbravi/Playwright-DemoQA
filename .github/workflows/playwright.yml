@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: "playwright-report/"
+          path: playwright-report/
 
       - name: Deploy to GitHub Pages
         if: always()
