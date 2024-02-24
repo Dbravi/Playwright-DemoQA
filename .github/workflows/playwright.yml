@@ -46,7 +46,6 @@ jobs:
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v1
         if: always()
-
         with:
           path: "playwright-report/"
 
