@@ -28,7 +28,7 @@ export class basePage {
 
   // ACTIONS
   async navigate () {
-    this.page.goto(this.baseUrl)
+    await this.page.goto(this.baseUrl)
   }
 
   async fillForm (input) {
