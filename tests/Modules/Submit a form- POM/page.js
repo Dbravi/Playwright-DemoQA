@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test'
 
-export class basePage {
+export class BasePage {
   // SELECTORS
   constructor (page) {
     this.page = page
@@ -11,7 +11,7 @@ export class basePage {
     this.gender = page.getByText('Male', { exact: true })
     this.phoneNumber = page.getByPlaceholder('Mobile Number')
     this.dateOfBirth = page.locator('#dateOfBirthInput')
-    this.subjects = page.locator('#ubjectsInput')
+    this.subjects = page.locator('#subjectsInput')
     this.date = page.getByLabel('Choose Monday, February 12th,')
     this.hobbieSports = page.getByText('Sports')
     this.address = page.getByPlaceholder('Current Address')
