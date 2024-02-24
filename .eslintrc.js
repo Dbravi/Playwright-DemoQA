@@ -9,9 +9,7 @@ module.exports = {
       env: {
         node: true
       },
-      files: [
-        '.eslintrc.{js,cjs,yaml, *.yml}'
-      ],
+      files: ['*.yaml', '*.yml', '.eslintrc.{js,cjs,yaml,yml}'],
       parserOptions: {
         sourceType: 'script'
       }
