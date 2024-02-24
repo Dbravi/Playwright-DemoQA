@@ -56,4 +56,4 @@ jobs:
 
       - name: Print Results Link
         if: always()
-        run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
+        run: echo '::set-output name=summary::[Test Results](https://dbravi.github.io/Playwright-DemoQA/')
