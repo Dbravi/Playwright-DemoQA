@@ -53,4 +53,4 @@ jobs:
         if: always()
         id: deployment
         uses: actions/deploy-pages@v2
-        run: echo "Results Link: [Playwright-DemoQA](https://dbravi.github.io/Playwright-DemoQA/)"
+        echo "Results Link: [Playwright-DemoQA](https://dbravi.github.io/Playwright-DemoQA/)"
