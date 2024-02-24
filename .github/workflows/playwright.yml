@@ -35,12 +35,12 @@ jobs:
       - name: Setup Pages
         if: always()
         uses: actions/configure-pages@v3
-        
-        - name: Deploy to GitHub Pages
+
+      - name: Deploy to GitHub Pages
          if: always()
          id: deployment
          uses: actions/deploy-pages@v2
 
-        - name: Print Results Link
+      - name: Print Results Link
         if: always()
         run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
