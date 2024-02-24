@@ -37,9 +37,9 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Deploy to GitHub Pages
-         if: always()
-         id: deployment
-         uses: actions/deploy-pages@v2
+        if: always()
+        id: deployment
+        uses: actions/deploy-pages@v2
 
       - name: Print Results Link
         if: always()
