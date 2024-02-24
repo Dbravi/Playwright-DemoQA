@@ -5,7 +5,6 @@ on:
     branches: [master, Develop]
   pull_request:
     branches: [master, Develop]
-  workflow_dispatch:  # Added for the Job Actions Summary job
 
 permissions:
   contents: read
@@ -19,43 +18,42 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
           node-version: '20' # Update this to a valid Node.js version
+
       - name: Install dependencies
         run: npm ci
+
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
       - name: Run Playwright tests
         run: npx playwright test
-<<<<<<< HEAD
+      
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: report-artifact
           path: playwright-report/
           retention-days: 3
-      - uses: actions/upload-pages-artifact@v1
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        if: always()
         with:
           path: "playwright-report/"
-      - uses: actions/configure-pages@v3
-=======
 
       - name: Setup Pages
         if: always()
         uses: actions/configure-pages@v3
 
->>>>>>> parent of 31925f7 (other)
       - name: Deploy to GitHub Pages
+        if: always()
         id: deployment
         uses: actions/deploy-pages@v2
-      - name: Print Results Link
-      - name: Add results to summary
-        run: |
-          echo "Test results: ..." >> $GITHUB_STEP_SUMMARY
-          echo "Deployment URL: ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
 
-  Job_Actions_Summary:  # Renamed to avoid potential conflicts
-    runs-on: ubuntu-latest  # Specify a runner for this job
-    steps:
-      - name: Simple Job Summary  # Added the missing `run` key
-        run: echo 'Hello World' >> $GITHUB_STEP_SUMMARY  # Added the missing command
+      - name: Print Results Link
+        if: always()
+        run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
