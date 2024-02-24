@@ -10,8 +10,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    permissions:
-      deployment: write
 
     steps:
       - uses: actions/checkout@v3
@@ -48,6 +46,8 @@ jobs:
           path: "playwright-report/"
 
       - name: Deploy to GitHub Pages
+        permissions:
+        deployment: write
         if: always()
         id: deployment
         uses: actions/deploy-pages@v2
