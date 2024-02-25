@@ -1,15 +1,10 @@
 // @ts-check
-import dotenv from 'dotenv'
 const { defineConfig, devices } = require('@playwright/test')
 
-dotenv.config({
-  path: `./env/.env.${process.env.URL}`
-})
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require('dotenv').config();
 
 /**
  * @see https://playwright.dev/docs/test-configuration
