@@ -23,7 +23,6 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['list'], ['html'], ['@estruyf/github-actions-reporter', {
-    title: 'Read full test results on https://dbravi.github.io/Playwright-DemoQA/',
     useDetails: true,
     showError: true
   }]],
