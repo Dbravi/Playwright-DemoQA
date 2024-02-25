@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
-      URL:${{ env.URL }}
+      $env:URL
 
     steps:
       - uses: actions/checkout@v3
