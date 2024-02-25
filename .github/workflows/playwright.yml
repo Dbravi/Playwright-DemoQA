@@ -57,3 +57,7 @@ jobs:
       - name: Print Results Link
         if: always()
         run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
+    
+     environment:
+      name: QA
+      url: https://dbravi.github.io/Playwright-DemoQA/
