@@ -1,6 +1,7 @@
 // @ts-check
-const { test } = require('@playwright/test')
+const { test, expect } = require('@playwright/test')
 
-test('has title', ({ page }) => {
+test('Console log ENV', ({ page }) => {
   console.log(process.env.URL)
+  expect(process.env.URL).toBeDefined()
 })
