@@ -59,3 +59,9 @@ jobs:
       - name: Print Results Link
         if: always()
         run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)"
+
+      - name: Summary
+        run: echo '### Hello world! :rocket:' >> $GITHUB_STEP_SUMMARY
+
+      - name: Generate results
+        run: echo "Results Link:(https://dbravi.github.io/Playwright-DemoQA/)" >>$GITHUB_STEP_SUMMARY
