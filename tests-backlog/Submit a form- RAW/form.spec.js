@@ -6,7 +6,7 @@ test.describe('Validation form tests', () => {
     await page.goto('https://demoqa.com/automation-practice-form')
   })
 
-  test.only('Test001', async ({ page }, testInfo) => {
+  test('Test001', async ({ page }, testInfo) => {
     await test.step('Fill Form', async () => {
       await page.fill('input[name="firstname"]', 'Damian')
       await page.fill('input[name="lastname"]', 'Bravi')
