@@ -2,14 +2,13 @@ module.exports = {
   env: {
     node: true
   },
-  extends: ['standard'],
-  plugins: ['yml'],
+  extends: ['standard', 'plugin:playwright/recommended', 'plugin:yml/standard'],
   overrides: [
     {
       env: {
         node: true
       },
-      files: ['*.yaml', '*.yml', '.eslintrc.{js,cjs,yaml,yml}'],
+      files: ['.eslintrc.{js,cjs,yml}'],
       parserOptions: {
         sourceType: 'script'
       }
@@ -21,6 +20,7 @@ module.exports = {
   },
   rules: {
     'require-await': 'error',
-    curly: 'error'
+    curly: 'error',
+    'playwright/expect-expect': 'on'
   }
 }
