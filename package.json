@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "sr": "playwright show-report",
-    "agen": "allure generate my-allure-results -o allure-report --clean",
-    "asr": "allure open allure-report"
+    "sr": "playwright show-report"
   },
   "keywords": [],
   "author": "",
@@ -16,8 +14,6 @@
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.41.2",
     "@types/node": "^20.11.19",
-    "allure-commandline": "^2.27.0",
-    "allure-playwright": "^2.13.0",
     "eslint": "^8.57.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.29.1",
