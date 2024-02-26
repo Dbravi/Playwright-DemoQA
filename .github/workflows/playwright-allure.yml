@@ -34,16 +34,22 @@ jobs:
       - name: Run Playwright tests
         run: npx playwright test
 
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v1
+        if: always()
+        with:
+        path: "allure-results/"
+      
+      - name: Setup Pages
+        if: always()
+        uses: actions/configure-pages@v3
+      
       - name: Build test report
         uses: simple-elf/allure-report-action@v1.7
         if: always()
         with:
           gh_pages: gh-pages
           allure_results: build/allure-results
-      
-      - name: Setup Pages
-        if: always()
-        uses: actions/configure-pages@v3
 
       - name: Deploy to GitHub Pages
         if: always()
