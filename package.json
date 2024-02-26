@@ -7,7 +7,7 @@
     "test": "playwright test",
     "sr": "playwright show-report",
     "agen": "allure generate my-allure-results -o allure-report --clean",
-    "arep": "allure open allure-report"
+    "asr": "allure open allure-report"
   },
   "keywords": [],
   "author": "",
