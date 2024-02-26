@@ -1,3 +1,5 @@
+import { expect } from '@playwright/test'
+
 export class BasePage {
   // SELECTORS
   constructor (page) {
@@ -47,10 +49,10 @@ export class BasePage {
     await this.submitButton.click()
   }
 
-  // VALIDATIONS
-  // async validateForm () {
-  //   await expect(this.modal).toContainText('Thanks for submitting the form')
-  // }
+  VALIDATIONS
+  async validateForm () {
+    await expect(this.modal).toContainText('Thanks for submitting the form')
+  }
 
   async captureAndAttachScreenshot (testInfo, screenshotName) {
     const screenshot = await this.page.screenshot()
