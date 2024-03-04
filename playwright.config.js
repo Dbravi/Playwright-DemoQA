@@ -10,6 +10,7 @@ const { defineConfig, devices } = require('@playwright/test')
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
+  // globalSetup: './global-setup.js',
   // globalSetup: 'utils/globalSetup.js',
   testDir: './tests',
   timeout: 15000,
@@ -29,7 +30,8 @@ module.exports = defineConfig({
     // baseURL: 'http://127.0.0.1:3000',
     baseURL: 'https://restful-booker.herokuapp.com',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry'
+    trace: 'on-first-retry',
+    storageState: './LoginAuth.json'
     // launchOptions: {
     //   // slowMo: isHeadedMode() ? 1000 : undefined,
     //   // args: ["--start-maximized"],

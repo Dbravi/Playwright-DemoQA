@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'require-await': 'error',
     curly: 'error',
-    'playwright/expect-expect': 'off'
+    'playwright/expect-expect': 'off',
+    'playwrigh/no-focused-test': 'off'
   }
 }
