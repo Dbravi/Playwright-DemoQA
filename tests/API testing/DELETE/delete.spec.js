@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 var token;
 
-test("should be able to delete the booking details", async ({ request }) => {
+test("should be able to delete the booking detail", async ({ request }) => {
   // Create a Token which will be used in PATCH request
 
   const response = await request.post("/auth", {
